@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {Link} from "react-router-dom";
 import "../styles/navbar.scss"
 
@@ -11,8 +11,13 @@ function Navbar(props) {
     // }, []);
 
     let mobile = true;
-    const changeMobile  = () => {
+    const changeMobile = () => {
         mobile = !mobile;
+    }
+
+    const logout = () => {
+        localStorage.clear();
+        props.setLogValue();
     }
 
     return (
@@ -24,7 +29,7 @@ function Navbar(props) {
                 <i className="fas fa-bars menu" onClick={changeMobile}/>
                 <i className="fas fa-times cross"/>
 
-                <ul  className={mobile ? 'pc' : "mobile"}>
+                <ul className={mobile ? 'pc' : "mobile"}>
                     <li className="nav-item">
                         <Link to="/" className="nav-links">
                             <i className="fa fa-home"> </i>Home
@@ -48,7 +53,7 @@ function Navbar(props) {
 
                     {!props.loggedIn ? <>
                         <li className="nav-item nav-mobile">
-                            <Link to="/sign-up" className="nav-links-mobile"
+                            <Link to="/signup" className="nav-links-mobile"
                             >
                                 <i className="fas fa-user-plus"/> Sign Up
                             </Link>
@@ -61,7 +66,7 @@ function Navbar(props) {
                                 <i className="fas fa-sign-in-alt"/> Login
                             </Link>
                         </li>
-                    </> : <li className="nav-item">
+                    </> : <li className="nav-item" onClick={logout}>
                         <i className="fas fa-sign-out-alt"/> Log out
                     </li>}
 

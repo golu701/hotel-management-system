@@ -1,3 +1,5 @@
+@import "variable";
+
 nav {
   //padding: 20px;
   display: flex;
@@ -7,7 +9,7 @@ nav {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  background-color: yellow;
+  background-color: $darkblue;
   padding: 50px;
   font-size: 20px;
 
@@ -15,11 +17,10 @@ nav {
 
 a {
   text-decoration: none;
-  color: black;
-}
-
-img {
-  width: 60px;
+  color: $aqua;
+  //&:hover{
+  //  color: $accent
+  //}
 }
 
 ul {
