@@ -34,8 +34,10 @@ const port = process.env.PORT || '3000';
 require('./db/connection')
 app.use(cors(corsOptions))
 app.use(logger('dev'));
+// app.use(express.urlencoded({extended: true}))
+app.use(express.json())
 app.use( express.static("public"));
-
+app.use("/", require("./router/user"))
 app.get("/", (req,res) => {
     // res.render("index")
 })

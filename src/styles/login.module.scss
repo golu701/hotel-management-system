@@ -41,6 +41,9 @@ span {
       border-radius: 26px;
       background: $darkblue;
       color: $teal;
+      &:hover{
+        box-shadow: 10px 10px 40px 1px $deepblue;
+      }
     }
 
     .form_group {
