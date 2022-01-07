@@ -1,11 +1,9 @@
 @import "variable";
 
 nav {
-  //padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  //background: transparent;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -18,13 +16,13 @@ nav {
 a {
   text-decoration: none;
   color: $aqua;
-  //&:hover{
-  //  color: $accent
-  //}
 }
 
 ul {
   display: flex;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 
   li {
     margin: 0 8px;
@@ -33,6 +31,7 @@ ul {
 }
 
 .menu {
+  color: $aqua;
   display: none;
   @media screen and (max-width: 768px) {
     display: block;
@@ -41,20 +40,12 @@ ul {
 
 .cross {
   display: none;
+
+  .active {
+    display: block !important;
+  }
 }
 
-.mobile{
-  background: red;
+a:hover {
+  color: $teal;
 }
-
-.pc{
-  //@media screen and (max-width: 768px) {
-  //  display: none;
-  //}
-
-}
-//@media screen and (max-width: 768px) {
-//  .pc{
-//    display: none;
-//  }
-//}

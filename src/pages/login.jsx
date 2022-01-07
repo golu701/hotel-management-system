@@ -5,7 +5,11 @@ import Style from "../styles/login.module.scss";
 import Axios from "axios";
 import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {useNavigate} from "react-router-dom";
+
 export default function Login() {
+
+    let history = useNavigate();
 
     const [values, setValues] = useState({
         email: "",
@@ -28,7 +32,8 @@ export default function Login() {
         }).then((res) => {
             const results = res.data;
             localStorage.setItem("token", results['token'])
-            toast.success("Balle balle ji")
+            toast.success("Balle balle ji");
+            history("/");
         }).catch((err) => {
             toast.error("gayo ji ")
         });

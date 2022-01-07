@@ -10,8 +10,7 @@ export default function Signup() {
     const [values, setValues] = useState({
         email: "",
         password: "",
-        first_name: '',
-        last_name: '',
+        name: '',
         phone: ''
     });
 
@@ -27,8 +26,7 @@ export default function Signup() {
         console.log(values)
         e.preventDefault();
         Axios.post("http://localhost:8000/register", {
-            first_name: values.first_name,
-            last_name: values.last_name,
+            name: values.name,
             phone: values.phone,
             password: values.password,
             email: values.email,
@@ -59,12 +57,8 @@ export default function Signup() {
                 <form onSubmit={handleSubmit}>
                     <h2>Registration </h2>
                     <div className={style.form_group}>
-                        <label htmlFor="name">First Name <span>*</span></label><br/>
+                        <label htmlFor="name"> Name <span>*</span></label><br/>
                         <input type="text" name="first_name" id="name" value={values.first_name} onChange={handleChange}/>
-                    </div>
-                    <div className={style.form_group}>
-                        <label htmlFor="last_name">Last Name <span>*</span></label><br/>
-                        <input type="text" name="last_name" id="last_name" value={values.last_name} onChange={handleChange}/>
                     </div>
                     <div className={style.form_group}>
                         <label htmlFor="phone">Phone <span>*</span></label><br/>

@@ -1,23 +1,25 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import "../styles/navbar.scss"
 
-function Navbar(props) {
-    // const [loggedIn, setLoggedIn] = useState(false);
+function Navbar() {
 
-    // useEffect(() => {
-    //     let data = localStorage.getItem('token');
-    //     setLoggedIn(data !== undefined);
-    // }, []);
+    const [active, setActive] = useState(false);
 
-    let mobile = true;
-    const changeMobile = () => {
-        mobile = !mobile;
+    const [loggedIn, setLoggedIn] = useState(false);
+
+    useEffect(() => {
+        let data = localStorage.getItem('token');
+        setLoggedIn(data !== null);
+    }, []);
+
+    const toggleClass = () => {
+        setActive(!active)
     }
 
     const logout = () => {
+        setLoggedIn(false);
         localStorage.clear();
-        props.setLogValue();
     }
 
     return (
@@ -26,10 +28,9 @@ function Navbar(props) {
                 <Link to="/">
                     <i className="fas fa-hotel"/>
                 </Link>
-                <i className="fas fa-bars menu" onClick={changeMobile}/>
-                <i className="fas fa-times cross"/>
+                <i className={active ? "fas fa-bars menu" : "fas fa-times menu"} onClick={toggleClass}/>
 
-                <ul className={mobile ? 'pc' : "mobile"}>
+                <ul>
                     <li className="nav-item">
                         <Link to="/" className="nav-links">
                             <i className="fa fa-home"> </i>Home
@@ -51,24 +52,30 @@ function Navbar(props) {
                         </Link>
                     </li>
 
-                    {!props.loggedIn ? <>
-                        <li className="nav-item nav-mobile">
-                            <Link to="/signup" className="nav-links-mobile"
-                            >
-                                <i className="fas fa-user-plus"/> Sign Up
+                    {!loggedIn ? <>
+                            <li className="nav-item nav-mobile">
+                                <Link to="/signup" className="nav-links-mobile"
+                                >
+                                    <i className="fas fa-user-plus"/> Sign Up
+                                </Link>
+                            </li>
+                            <li className="nav-item nav-mobile">
+                                <Link
+                                    to="/login"
+                                    className="nav-links-mobile"
+                                >
+                                    <i className="fas fa-sign-in-alt"/> Login
+                                </Link>
+                            </li>
+                        </> :
+                        <>
+                            <Link to="/">
+                                <li className="nav-item" onClick={logout}>
+                                    <i className="fas fa-sign-out-alt"/> Log out
+                                </li>
                             </Link>
-                        </li>
-                        <li className="nav-item nav-mobile">
-                            <Link
-                                to="/login"
-                                className="nav-links-mobile"
-                            >
-                                <i className="fas fa-sign-in-alt"/> Login
-                            </Link>
-                        </li>
-                    </> : <li className="nav-item" onClick={logout}>
-                        <i className="fas fa-sign-out-alt"/> Log out
-                    </li>}
+                        </>
+                    }
 
                 </ul>
             </nav>

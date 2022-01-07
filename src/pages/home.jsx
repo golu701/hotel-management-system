@@ -1,28 +1,19 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
-import "../styles/home.scss"
+import style from "../styles/home.module.scss"
 
 export default function Home() {
 
-    const [loggedIn, setLoggedIn] = useState(false);
-    useEffect(() => {
-        let data = localStorage.getItem('token');
-        setLoggedIn(data === undefined);
-    }, []);
-
     return (
         <>
-            <Navbar loggedIn={loggedIn} setLogValue={setLoggedIn}/>
-
-            <div className="main"/>
-
-            <div className="info">
-                {/* <img  alt="" /> */}
-                <img src="/img/info.jpg" alt="" id="info_img" />
-
+            <Navbar />
+            {/*<div className="main"/>*/}
+            <div>
+                <img className={style.image} src="https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmlld3xlbnwwfHwwfHw%3D&w=1000&q=80" alt="image1"/>
+                <img className={style.image} src="https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmlld3xlbnwwfHwwfHw%3D&w=1000&q=80" alt="image1"/>
+                <img className={style.image} src="/img/info.jpg" alt="image1"/>
             </div>
-
             <Footer/>
         </>
     )
