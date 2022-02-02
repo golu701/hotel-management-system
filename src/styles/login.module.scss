@@ -1,7 +1,5 @@
 @import "./variable";
-span {
-  color: red;
-}
+
 
 .login {
   height: 83.2vh;
@@ -23,13 +21,18 @@ span {
     border-radius: 10px;
     box-shadow: 10px 10px 40px 1px $aqua;
 
+    span {
+      color: red;
+    }
+
     input {
       margin-top: 7px;
       border: none;
       padding: 10px;
       border-radius: 12px;
       font-size: 25px;
-      &:focus-visible{
+
+      &:focus-visible {
         outline: none;
       }
     }
@@ -41,7 +44,8 @@ span {
       border-radius: 26px;
       background: $darkblue;
       color: $teal;
-      &:hover{
+
+      &:hover {
         box-shadow: 10px 10px 40px 1px $deepblue;
       }
     }

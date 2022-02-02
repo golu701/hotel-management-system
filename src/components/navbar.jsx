@@ -69,6 +69,11 @@ function Navbar() {
                             </li>
                         </> :
                         <>
+                            <Link to="/profile">
+                                <li className="nav-item">
+                                    <i className="fas fa-user"/> Profile
+                                </li>
+                            </Link>
                             <Link to="/">
                                 <li className="nav-item" onClick={logout}>
                                     <i className="fas fa-sign-out-alt"/> Log out
@@ -76,7 +81,6 @@ function Navbar() {
                             </Link>
                         </>
                     }
-
                 </ul>
             </nav>
         </>
