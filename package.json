@@ -2,11 +2,15 @@
   "name": "hotel-management-system",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.5",
     "node-sass": "^7.0.0",
     "react": "18",
     "react-dom": "18",
@@ -20,7 +24,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start-server": "node server/index.js",
+    "dev:start-server": "nodemon server/index.js"
   },
   "eslintConfig": {
     "extends": [
