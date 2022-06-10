@@ -5,6 +5,7 @@ import authRoute from "./router/auth.js";
 import hotelRoute from "./router/hotel.js";
 import roomRoute from "./router/room.js";
 import userRoute from "./router/user.js";
+import { createError } from "./utils/error.js";
 const app = express();
 dotenv.config()
 
@@ -25,6 +26,10 @@ mongoose.connection.on("connected", () => {
     console.log("Mongodb connected");
 })
 
+// under construction
+// app.get((req, res, next) => {
+//     return createError(404, "Under construction");
+// });
 
 // routes
 app.use("/auth", authRoute);
