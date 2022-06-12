@@ -1,6 +1,9 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import cookieParser from "cookie-parser";
+
+
 import authRoute from "./router/auth.js";
 import hotelRoute from "./router/hotel.js";
 import roomRoute from "./router/room.js";
@@ -30,6 +33,10 @@ mongoose.connection.on("connected", () => {
 // app.get((req, res, next) => {
 //     return createError(404, "Under construction");
 // });
+
+// app config
+app.use(express.json());
+app.use(cookieParser());
 
 // routes
 app.use("/auth", authRoute);
