@@ -1,6 +1,6 @@
 import express from "express";
-import {createHotel, deleteHotel, getAllHotels, getHotelById, updateHotel} from "../controller/hotel.controller.js";
-import {verifyAdmin} from "../utils/veifyToken.js";
+import { createHotel, deleteHotel, getAllHotels, getHotelById, updateHotel } from "../controller/hotel.controller.js";
+import { verifyAdmin } from "../utils/verifyToken.js";
 
 const router = express.Router();
 
